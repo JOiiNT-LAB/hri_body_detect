@@ -25,17 +25,17 @@ from lifecycle_msgs.msg import Transition
 def generate_launch_description():
     rgb_camera_arg = DeclareLaunchArgument(
         'rgb_camera',
-        default_value='',
+        default_value='camera',
         description='The input rgb camera namespace')
     rgb_camera_topic_arg = DeclareLaunchArgument(
         'rgb_camera_topic',
         default_value=[LaunchConfiguration('rgb_camera'),
-                       '/image_raw'],
+                       '/camera/color/image_raw'],
         description='The input rgb camera image topic')
     rgb_camera_info_arg = DeclareLaunchArgument(
         'rgb_camera_info',
         default_value=[LaunchConfiguration('rgb_camera'),
-                       '/camera_info'],
+                       '/camera/color/camera_info'],
         description='The input rgb camera info topic')
     use_depth_arg = DeclareLaunchArgument(
         'use_depth',
@@ -43,17 +43,17 @@ def generate_launch_description():
         description='Whether or not using the depth information')
     depth_camera_arg = DeclareLaunchArgument(
         'depth_camera',
-        default_value='',
+        default_value='/camera',
         description='The input depth camera namespace')
     depth_camera_topic_arg = DeclareLaunchArgument(
         'depth_camera_topic',
         default_value=[LaunchConfiguration('depth_camera'),
-                       '/image_rect_raw'],
+                       '/camera/depth/image_rect_raw'],
         description='The input depth camera image topic')
     depth_camera_info_arg = DeclareLaunchArgument(
         'depth_camera_info',
         default_value=[LaunchConfiguration('depth_camera'),
-                       '/camera_info'],
+                       '/camera/depth/camera_info'],
         description='The input depth camera info topic')
     stickman_debug_arg = DeclareLaunchArgument(
         'stickman_debug',
