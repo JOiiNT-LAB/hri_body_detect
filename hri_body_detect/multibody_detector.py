@@ -1181,12 +1181,18 @@ class MultibodyDetector:
         body_ids_list.ids = []
         body_ids_list.header = header
         output_dict = {}
+
+        print("tracked output dim: " + str(len(tracked_output)))
+        for i in range(0,len(tracked_output)):
+            print("id: " + str(i) + " score: " + str(tracked_output[i].score))
+
+
         for track in tracked_output:
             track_id = track.track_id
             if track_id not in self.ids_dict:
                 body_id = "".join(random.sample(
                     "abcdefghijklmnopqrstuvwxyz", 5))
-
+                body_id = "default"
                 # dictionary that relates the track_id and body_id
                 self.ids_dict[track_id] = body_id
 
